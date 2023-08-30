@@ -7,14 +7,14 @@ import type { UserConfig } from 'vite';
 
 const htmlPluginConfig = {
   minify: true,
-  entry: '../scripts/main.ts',
+  entry: './scripts/main.ts',
   template: './index.html',
 };
 
 export const defaultConfig: UserConfig = {
   root: resolve(__dirname, 'src'),
   build: {
-    outDir: '../docs',
+    outDir: '../dist',
   },
   plugins: [createHtmlPlugin(htmlPluginConfig)],
   publicDir: '../public',
