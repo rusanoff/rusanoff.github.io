@@ -197,7 +197,7 @@ module.exports = {
     // Не для CommonJS or ES6 modules.
     // "outFile": '',
 
-    // Удалять объявления const enum в сгенерированном код
+    // Не удалять объявления const enum в сгенерированном коде
     "preserveConstEnums": false,
 
     // Устаревший в пользу verbatimModuleSyntax
