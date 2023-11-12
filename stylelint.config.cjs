@@ -2,17 +2,13 @@ module.exports = {
   customSyntax: 'postcss-scss',
   rules: {
     /** region Avoid errors */
-
     // region Descending
-
     // Запретить селекторам с более низкой специфичностью появляться после переопределения селекторов
     // с более высокой специфичностью
     'no-descending-specificity': true,
 
     // endregion Descending
-
     // region Duplicate
-
     // Запретить дублирование пользовательских свойств в блоках объявлений
     'declaration-block-no-duplicate-custom-properties': true,
 
@@ -32,9 +28,7 @@ module.exports = {
     'no-duplicate-selectors': true,
 
     // endregion Duplicate
-
     // region Empty
-
     // Запретить пустые блоки
     'block-no-empty': true,
 
@@ -45,9 +39,7 @@ module.exports = {
     'no-empty-source': true,
 
     // endregion Empty
-
     // region Invalid
-
     // Запретить недопустимые шестнадцатеричные значения цвета
     'color-no-invalid-hex': true,
 
@@ -70,16 +62,12 @@ module.exports = {
     'string-no-newline': true,
 
     // endregion Invalid
-
     // region Irregular
-
     // Запретить неправильные пробелы
     'no-irregular-whitespace': true,
 
     // endregion Irregular
-
     // region Missing
-
     // Запретить отсутствующую функцию var для пользовательских свойств
     'custom-property-no-missing-var-function': true,
 
@@ -87,23 +75,17 @@ module.exports = {
     'font-family-no-missing-generic-family-keyword': true,
 
     // endregion Missing
-
     // region Non-standard
-
     // Запретить значения направления в вызовах `linear-gradient()`, недопустимые по стандартному синтаксису
     'function-linear-gradient-no-nonstandard-direction': true,
 
     // endregion Non-standard
-
     // region Overrides
-
     // Запретить сокращённые свойства, которые переопределяют связанные полные свойства
     'declaration-block-no-shorthand-property-overrides': true,
 
     // endregion Overrides
-
     // region Unknown
-
     // Запретить неизвестные аннотации
     'annotation-no-unknown': true,
 
@@ -135,15 +117,10 @@ module.exports = {
     'unit-no-unknown': true,
 
     // endregion Unknown
-
     /** endregion Avoid errors */
-
     /* -------------------------------------------------------------------- */
-
     /** region Enforce non-stylistic conventions */
-
     // region Allowed, disallowed & required
-
     // Не отслеживать список разрешённых at-правил
     'at-rule-allowed-list': null,
 
@@ -276,9 +253,7 @@ module.exports = {
     'value-no-vendor-prefix': true,
 
     // endregion Allowed, disallowed & required
-
     // region Max & min
-
     // Ограничить количество свойств в однострочном блоке
     'declaration-block-single-line-max-declarations': 1,
 
@@ -322,9 +297,7 @@ module.exports = {
     'time-min-milliseconds': 16,
 
     // endregion Max & min
-
     // region Notation
-
     // Числовое обозначение для альфа-значений
     'alpha-value-notation': 'number',
 
@@ -353,9 +326,7 @@ module.exports = {
     'selector-pseudo-element-colon-notation': 'double',
 
     // endregion Notation
-
     // region Pattern
-
     // Не отслеживать шаблон для комментариев
     'comment-pattern': null,
 
@@ -378,9 +349,7 @@ module.exports = {
     'selector-nested-pattern': null,
 
     // endregion Pattern
-
     // region Quotes
-
     // Требовать кавычки вокруг каждого имени семейства шрифтов, которое не является ключевым словом
     'font-family-name-quotes': 'always-unless-keyword',
 
@@ -391,15 +360,15 @@ module.exports = {
     'selector-attribute-quotes': 'always',
 
     // endregion Quotes
-
     // region Redundant
-
     // Запретить сокращённые свойства, которые можно объединить в одно сокращённое свойство
     'declaration-block-no-redundant-longhand-properties': [
       true,
       {
         // Игнорировать свойства:
-        ignoreShorthands: ['font'],
+        ignoreShorthands: [
+          'font',
+        ],
       },
     ],
 
@@ -407,15 +376,10 @@ module.exports = {
     'shorthand-property-no-redundant-values': true,
 
     // endregion Redundant
-
     /** endregion Enforce non-stylistic conventions */
-
     /* -------------------------------------------------------------------- */
-
     /** region Enforce stylistic conventions */
-
     // region Not handled by pretty printers
-
     // Разрешить только строчные буквы для значений ключевых слов
     'value-keyword-case': 'lower',
 
@@ -447,9 +411,16 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always',
       {
-        except: ['blockless-after-same-name-blockless', 'first-nested'],
-        ignore: ['after-comment'],
-        ignoreAtRules: ['else'],
+        except: [
+          'blockless-after-same-name-blockless',
+          'first-nested',
+        ],
+        ignore: [
+          'after-comment',
+        ],
+        ignoreAtRules: [
+          'else',
+        ],
       },
     ],
 
@@ -470,9 +441,7 @@ module.exports = {
     'comment-whitespace-inside': 'always',
 
     // endregion Not handled by pretty printers
-
     // region Handled by pretty printers
-
     // Разрешить только строчные буквы для шестнадцатеричных цветов
     'color-hex-case': 'lower',
 
@@ -555,7 +524,7 @@ module.exports = {
     'declaration-block-semicolon-newline-before': 'never-multi-line',
 
     // Запретить пробелы после точек с запятой в блоках объявлений
-    'declaration-block-semicolon-space-after': 'always',
+    'declaration-block-semicolon-space-after': 'off',
 
     // Запретить пробелы перед точками с запятой в блоках объявлений
     'declaration-block-semicolon-space-before': 'never',
@@ -570,7 +539,10 @@ module.exports = {
     'block-closing-brace-newline-after': [
       'always',
       {
-        ignoreAtRules: ['if', 'else'],
+        ignoreAtRules: [
+          'if',
+          'else',
+        ],
       },
     ],
 
@@ -708,9 +680,7 @@ module.exports = {
 
     // Запретить знак порядка байтов Unicode
     'unicode-bom': 'never',
-
     // endregion Handled by pretty printers
-
     /** endregion Enforce stylistic conventions */
   },
 };
