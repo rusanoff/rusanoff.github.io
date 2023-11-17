@@ -1,11 +1,13 @@
 {
   "include": [
     "src",
-    "*.js",
-    "*.*.js"
+    "./*.js",
+    "./*.ts",
+    "./*.*.js",
+    "./*.*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "backup"
   ],
   "compilerOptions": {
     "allowUnreachableCode": false,
@@ -31,14 +33,13 @@
     "allowImportingTsExtensions": false,
     "allowUmdGlobalAccess": false,
     "baseUrl": ".",
-    "customConditions": [],
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "moduleSuffixes": [],
     "noResolve": false,
     "paths": {},
     "resolveJsonModule": true,
-    "resolvePackageJsonExports": true,
+    "resolvePackageJsonExports": false,
     "rootDir": ".",
     "rootDirs": [],
     "typeRoots": [],
@@ -102,9 +103,7 @@
     "watchDirectory": "useFsEvents",
     "fallbackPolling": "fixedInterval",
     "synchronousWatchDirectory": true,
-    "excludeDirectories": [
-      "node_modules"
-    ],
+    "excludeDirectories": [],
     "excludeFiles": []
   },
   "typeAcquisition": {

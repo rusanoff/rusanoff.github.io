@@ -1,3 +1,8 @@
 @import '../../node_modules/modern-css-reset/dist/reset.min.css';
 @import './global';
 @import './components';
+
+.body {
+  background-color: var(--black);
+  color: var(--white);
+}

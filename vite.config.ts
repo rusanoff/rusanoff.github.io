@@ -16,14 +16,14 @@ export const defaultConfig: UserConfig = {
   build: {
     outDir: '../dist',
   },
-  plugins: [createHtmlPlugin(htmlPluginConfig)],
   publicDir: '../public',
+  plugins: [createHtmlPlugin(htmlPluginConfig)],
   server: {
     host: '0.0.0.0',
     hmr: {
       clientPort: Number(process.env.OUTER_PORT_FRONTEND),
     },
-    port: Number(process.env.INNER_PORT_FRONTEND),
+    port: Number(process.env.INNER_PORT_FRONTEND) || 3001,
   },
 };
 

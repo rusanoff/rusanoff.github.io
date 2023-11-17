@@ -3,42 +3,44 @@ import typeScriptParser from '@typescript-eslint/parser';
 import typeScriptEslintPlugin from '@typescript-eslint/eslint-plugin';
 // FIXME: Включить ESLint для html файлов, когда WebStorm будет поддерживать flat config
 // FIXME: Пока не работает для нового варианта конфигурации ESLint
-// import importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import';
 
 import eslintRules from './eslint-rules.config.js';
 import typescriptRules from './eslint-typescript-rules.config.js';
-// eslint-disable-next-line capitalized-comments
-// import importRules from './eslint-import-rules.config.js';
+import importRules from './eslint-import-rules.config.js';
 
 export default [
   {
     ignores: [
-      'dist/*',
-      'node_modules/*',
-      'public/*',
-      '.github/*',
-      '.husky/*',
+      'dist/!*',
+      'node_modules/!*',
+      'public/!*',
+      '.github/!*',
+      '.husky/!*',
       '*.d.ts',
     ],
   },
   {
     files: [
-      '**/*.js',
-      '**/*.*.js',
-      '**/*.ts',
-      '**/*.*.ts',
+      './!*.js',
+      './!*.*.js',
+      './!*.ts',
+      './!*.*.ts',
+      '**!/!*.js',
+      '**!/!*.*.js',
+      '**!/!*.ts',
+      '**!/!*.*.ts',
     ],
     plugins: {
       // Плагин с наборами правил для TypeScript
       '@typescript-eslint': typeScriptEslintPlugin,
       // Плагин для импортов
-      // 'import': importPlugin,
+      'import': importPlugin,
     },
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.es2021,
-        myCustomGlobal: 'readonly',
       },
       parser: typeScriptParser,
       parserOptions: {
@@ -51,7 +53,7 @@ export default [
     rules: {
       ...eslintRules.rules,
       ...typescriptRules.rules,
-      // ...importRules.rules,
+      ...importRules.rules,
     },
   },
   {
@@ -61,9 +63,9 @@ export default [
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-require-imports': 'off',
-      // 'import/no-default-export': 'off',
-      // 'import/no-unresolved': 'off',
-      // 'import/no-anonymous-default-export': 'off',
+      'import/no-default-export': 'off',
+      'import/no-unresolved': 'off',
+      'import/no-anonymous-default-export': 'off',
     },
   },
 ];

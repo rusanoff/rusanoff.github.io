@@ -1,0 +1,8 @@
+backup
+dist
+node_modules
+public
+.github
+.husky
+
+*.d.ts

@@ -127,8 +127,8 @@ module.exports = {
     // Разрешить импортировать модули с расширением `.json` 
     "resolveJsonModule": true,
 
-    // Обращаться к полю экспорта файлов `package.json`, если он когда-либо читает из пакета в `node_modules`
-    "resolvePackageJsonExports": true,
+    // Не обращаться к полю экспорта файлов `package.json`, если он когда-либо читает из пакета в `node_modules`
+    "resolvePackageJsonExports": false,
 
     // Обращаться к полю импорта файлов `package.json`, если он когда-либо читает из пакета в `node_modules`
     "resolvePackageJsonImports": true,

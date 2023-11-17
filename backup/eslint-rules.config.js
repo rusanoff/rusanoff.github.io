@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   rules: {
     // region Possible Problems
 
@@ -639,7 +639,6 @@ module.exports = {
       'error',
       {
         max: 1,
-        maxEOF: 0,
       },
     ],
 

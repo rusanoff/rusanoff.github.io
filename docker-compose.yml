@@ -7,6 +7,7 @@ services:
     build: .
     volumes:
       - ./src:/app/src
+      - ./public:/app/public
       - ./vite.config.ts:/app/vite.config.ts
       - ./tsconfig.json:/app/tsconfig.json
     environment:
