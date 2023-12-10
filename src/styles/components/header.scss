@@ -1,0 +1,24 @@
+.header__title {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.header__subtitle {
+  position: relative;
+  margin-top: .75rem;
+  padding-left: 5rem;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    display: block;
+    width: 56px;
+    height: 5px;
+    background-color: var(--color-text-contrast);
+    transform: translateY(-50%);
+  }
+}

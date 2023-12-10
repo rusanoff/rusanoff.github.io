@@ -481,14 +481,14 @@ module.exports = {
     // Разрешить только строчные буквы для единиц измерения
     'unit-case': 'lower',
 
-    // Разрешить новую строку и пробелы после запятых в списках значений
-    'value-list-comma-newline-after': 'never-multi-line',
+    // @deprecated Разрешить новую строку и пробелы после запятых в списках значений
+    // 'value-list-comma-newline-after': 'always',
 
     // Разрешить новую строку и пробелы перед запятыми в списках значений
     'value-list-comma-newline-before': 'never-multi-line',
 
-    // Требовать один пробел после запятых в списках значений
-    'value-list-comma-space-after': 'always',
+    // @deprecated Требовать один пробел после запятых в списках значений
+    // 'value-list-comma-space-after': 'always',
 
     // Запретить пробел после запятых в списках значений
     'value-list-comma-space-before': 'never',
@@ -508,8 +508,8 @@ module.exports = {
     // Требовать новую строку после двоеточия, если значение объявления многострочное
     'declaration-colon-newline-after': 'always-multi-line',
 
-    // Требовать пробел после двоеточия
-    'declaration-colon-space-after': 'always',
+    // @deprecated Требовать пробел после двоеточия
+    // 'declaration-colon-space-after': 'always-single-line',
 
     // Запретить пробел перед двоеточием
     'declaration-colon-space-before': 'never',

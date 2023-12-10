@@ -3,6 +3,54 @@
 @import './components';
 
 .body {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  max-width: 964px;
+}
+
+.row {
+  position: relative;
+}
+
+.text {
+  width: 100%;
+  max-width: 560px;
+}
+
+.person-section {
+  padding-top: 5rem;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.info {
+  margin-top: 1.5rem;
+}
+
+.info__paragraph {
+  &:not(:first-child) {
+    margin-top: .75rem;
+  }
+}
+
+.info__not-actual {
+  opacity: .4;
+}
+
+.info__divider {
+  margin: 2rem 0;
+  width: 50px;
+  height: 2px;
+  border: none;
+  background-color: var(--color-decoration);
+}
+
+.info-row {
+  display: flex;
 }
