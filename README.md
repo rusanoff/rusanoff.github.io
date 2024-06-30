@@ -20,8 +20,11 @@ jobs:
         configFile: commitlint.config.ts
 ```
 
+## tsconfig
+
 ```js
 module.exports = {
+  // Файлы для включения в отслеживание
   "files": [],
   "extends": "",
   "include": [
@@ -113,7 +116,7 @@ module.exports = {
     "module": "esnext",
 
     // Стратегия разрешения модуля из списка
-    "moduleResolution": "node16",
+    "moduleResolution": "nodenext",
 
     // Предоставляет способ переопределить список суффиксов имен файлов по умолчанию для поиска при разрешении модуля
     "moduleSuffixes": [],
@@ -188,7 +191,8 @@ module.exports = {
     // Не создавать выходные файлы для помощников
     "noEmitHelpers": true,
 
-    // ?
+    // Не создавать выходные файлы компилятора, такие как исходный код JavaScript, исходные карты или объявления,
+    // если были сообщения о каких-либо ошибках
     // "noEmitOnError": false,
 
     // Директория для файлов `.js` после транспиляции 
@@ -212,7 +216,7 @@ module.exports = {
     // Местоположение, в котором отладчик должен найти файлы TypeScript, а не относительные исходные местоположения
     // "sourceRoot": ''
 
-    // ?
+    // Не создавать объявления для кода, который имеет аннотацию @internal в комментарии JSDoc
     // "stripInternal": false,
 
     // Разрешите импорт файлов JavaScript
@@ -242,10 +246,10 @@ module.exports = {
     // Указывать на проблемы кода, который не может быть правильно интерпретирован во время транспиляции одного файла
     "isolatedModules": true,
 
-    // ?
+    // Не отражать тот же флаг в Node.js; который не определяет реальный путь символических ссылок
     "preserveSymlinks": false,
 
-    // ?
+    // Не сохранять исходный синтаксис модуля JS
     "verbatimModuleSyntax": false,
 
     // Устанавливет кодировку
@@ -259,9 +263,6 @@ module.exports = {
 
     // Проверять параметры типа при сравнении двух универсальных функций 
     "noStrictGenericChecks": false,
-
-    // @deprecated, use outFile 
-    "out": "",
 
     // Нужно было для старых версий TS
     "suppressExcessPropertyErrors": false,
@@ -278,14 +279,14 @@ module.exports = {
     // Не изменять JSX
     "jsx": "preserve",
 
-    // ?
-    // "jsxFactory": ?
+    // Переопредление функции для создания элементов JSX (полезно, например, для preact)
+    // "jsxFactory": "h",
 
-    // ?
-    // "jsxFragmentFactory": ?
+    // Переопредление функции для создания фрагментов JSX (полезно, например, для preact)
+    // "jsxFragmentFactory": "Fragment",
 
-    // ?
-    // "jsxImportSource": ?
+    // Указывает библиотеку, из которой будут импортироваться функции для работы с JSX
+    // "jsxImportSource": "preact",
 
     // Вспомогательный библиотеки типов
     "lib": [],
@@ -296,8 +297,8 @@ module.exports = {
     // Отключает автоматическое включение любых файлов библиотеки. Если эта опция установлена, `lib` игнорируется
     "noLib": false,
 
-    // ?
-    // "reactNamespace": false,
+    // @depraecated в пользу `jsxFactory`
+    // "reactNamespace": "",
     
     // Версия JavaScript для транспиляции
     "target": "ESNext",
