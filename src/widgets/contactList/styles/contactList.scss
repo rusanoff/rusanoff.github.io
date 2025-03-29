@@ -1,0 +1,67 @@
+@import "../../../shared/styles/mixins";
+
+.contact-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list__item {
+  & + & {
+    margin-left: 1.6rem;
+  }
+}
+
+.contact-list__link {
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0.5;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  @include no-hover() {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:not(:hover) {
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.contact-list__link--telegram {
+  background-image: url("/icons/social-networks/telegram.svg");
+}
+
+.contact-list__link--linkedin {
+  background-image: url("/icons/social-networks/linkedin.svg");
+}
+
+.contact-list__link--instagram {
+  background-image: url("/icons/social-networks/instagram.svg");
+}
+
+.contact-list__link--github {
+  background-image: url("/icons/social-networks/github.svg");
+}
+
+.contact-list__link--gmail {
+  background-image: url("/icons/social-networks/gmail.svg");
+}
+
+.contact-list__text {
+  display: none;
+}

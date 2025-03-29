@@ -1,8 +1,12 @@
-backup
-dist
-node_modules
-public
 .github
 .husky
+.idea
+backup
+certs
+dev-dist
+dist
+dockerfiles
+node_modules
+public
 
 *.d.ts

@@ -1,4 +1,63 @@
 /* stylelint-disable selector-max-type, selector-no-qualifying-type */
+@import "../../node_modules/modern-css-reset/dist/reset.min.css";
+@import "../shared/styles/mixins";
+
+:root {
+  --color-bg: #ddd;
+  --color-scrollbar: #bbb;
+  --color-scrollbar-hover: #aaa;
+  --selection-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  &::selection {
+    background-color: var(--selection-color);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background-color: var(--color-bg);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--color-scrollbar-hover);
+  }
+}
+
+html {
+  &.dark {
+    --color-bg: #070707;
+    --color-scrollbar: #111;
+    --color-scrollbar-hover: #222;
+    --selection-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald Variable", sans-serif;
+  font-variation-settings: "wght" 600;
+  line-height: 112%;
+  color: var(--color-text-contrast);
+
+  @include font-variation-fallback("Oswald", 600);
+}
+/* stylelint-disable selector-max-type, selector-no-qualifying-type */
 :root {
   --color-bg: #fefefe;
   --color-text-main: #222;

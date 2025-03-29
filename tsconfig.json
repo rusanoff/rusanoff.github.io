@@ -1,10 +1,16 @@
 {
   "include": [
     "src",
+    "utils",
+    "scripts",
     "./*.js",
     "./*.ts",
     "./*.*.js",
-    "./*.*.ts"
+    "./*.*.cjs",
+    "./*.*.mjs",
+    "./*.*.ts",
+    "./*.*.cts",
+    "./*.*.mts"
   ],
   "exclude": [
     "backup"
@@ -30,11 +36,10 @@
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
     "allowArbitraryExtensions": false,
-    "allowImportingTsExtensions": false,
+    "allowImportingTsExtensions": true,
     "allowUmdGlobalAccess": false,
-    "baseUrl": "./",
-    "customConditions": [],
-    "module": "esnext",
+    "baseUrl": ".",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     "moduleSuffixes": [],
     "noResolve": false,
@@ -70,7 +75,6 @@
     "isolatedModules": true,
     "preserveSymlinks": false,
     "verbatimModuleSyntax": false,
-    "charset": "utf8",
     "keyofStringsOnly": false,
     "noImplicitUseStrict": false,
     "noStrictGenericChecks": false,
@@ -95,7 +99,6 @@
     "disableSolutionSearching": false,
     "disableSourceOfProjectReferenceRedirect": false,
     "incremental": false,
-    "tsBuildInfoFile": "",
     "noErrorTruncation": false,
     "preserveWatchOutput": false,
     "pretty": true,

@@ -1,0 +1,50 @@
+@use "sass:list";
+
+@import "./media-screen-mixins";
+@import "./media-device-mixins";
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin multiline-ellipsis($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: $lines;
+  text-overflow: ellipsis;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@mixin font-variation-fallback($fontFamily, $weight, $stretch: 100%) {
+  @supports not (font-variation-settings: "wght" #{$weight}) {
+    font-family: $fontFamily;
+    font-weight: $weight;
+    font-stretch: $stretch;
+  }
+}
+
+@mixin multi-layer-shadow($color: rgba(0, 0, 0, 0.075), $x-offset: 0, $y-offset: 1px, $blur: 1px, $layers: 5) {
+  $shadows: (0 -1px 4px rgba($color, 0.05));
+
+  @for $i from 1 through $layers {
+    $shadows: list.append($shadows, #{$x-offset} #{$y-offset} #{$blur} $color, comma);
+    $x-offset: $x-offset * 2;
+    $y-offset: $y-offset * 2;
+    $blur: $blur * 2;
+  }
+
+  box-shadow: $shadows;
+}
