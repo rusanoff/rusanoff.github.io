@@ -1,9 +1,12 @@
-.git
 .github
 .husky
 .idea
 backup
+certs
 dev-dist
 dist
-node_modules
 dockerfiles
+node_modules
+public
+
+*.d.ts

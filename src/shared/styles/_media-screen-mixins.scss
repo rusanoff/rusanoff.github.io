@@ -1,0 +1,55 @@
+@import "./variables";
+
+@mixin max-media($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-media($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin forSmallMobiles() {
+  @include max-media($xxs) {
+    @content;
+  }
+}
+
+@mixin forMostMobiles() {
+  @include max-media($xs) {
+    @content;
+  }
+}
+
+@mixin forAllMobiles() {
+  @include max-media($sm) {
+    @content;
+  }
+}
+
+@mixin forSmallTablets() {
+  @include max-media($md) {
+    @content;
+  }
+}
+
+@mixin forMostTablets() {
+  @include max-media($lg) {
+    @content;
+  }
+}
+
+@mixin forAllTablets() {
+  @include max-media($xl) {
+    @content;
+  }
+}
+
+@mixin forSmallerScreensThanDesktops() {
+  @include max-media($xxl) {
+    @content;
+  }
+}
