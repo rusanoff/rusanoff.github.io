@@ -1,0 +1,14 @@
+name: rusanoff-github-io-prod
+
+services:
+  frontend:
+    build:
+      context: ../..
+      dockerfile: ./dockerfiles/prod/Dockerfile
+    ports:
+      - "80:80"
+    container_name: frontend-prod
+    restart: always
+    environment:
+      - NODE_ENV=production
+    # В продакшене не используем volumes, всё в контейнере 

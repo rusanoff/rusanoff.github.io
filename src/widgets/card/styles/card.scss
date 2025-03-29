@@ -1,0 +1,85 @@
+@import "../../../shared/styles/mixins";
+
+.card {
+  transform-style: preserve-3d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  height: 50rem;
+  background-color: #fff;
+  border-radius: 2rem;
+}
+
+.card__particles {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #fff, transparent);
+  }
+}
+
+.card__header {
+  flex: 1;
+  padding: 3.2rem;
+}
+
+.card__title {
+  font-size: 4rem;
+  font-variation-settings: "wght" 400;
+  text-transform: uppercase;
+}
+
+.card__subtitle {
+  position: relative;
+  margin-top: 0.7rem;
+  padding-left: 2.8rem;
+  font-size: 1.6rem;
+  font-variation-settings: "wght" 300;
+  color: #666;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    transform: translateY(-50%);
+    width: 1.6rem;
+    height: 0.4rem;
+    background-color: #222;
+  }
+}
+
+.card__content {
+  position: relative;
+  overflow: hidden;
+  margin-top: -3.2rem;
+}
+
+.card__picture {
+  transform: translateX(6rem);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+}
+
+.card__footer {
+  padding: 2.4rem 1.6rem;
+  background-color: #222;
+}

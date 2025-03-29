@@ -1,1 +1,9 @@
+.git
+.github
+.husky
+.idea
+backup
+dev-dist
+dist
 node_modules
+dockerfiles

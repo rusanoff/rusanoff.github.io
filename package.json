@@ -1,12 +1,23 @@
 {
   "name": "rusanoff.github.io",
+  "engines": {
+    "node": ">=23"
+  },
   "version": "1.0.0",
   "description": "Online business card",
   "scripts": {
-    "dev": "vite --host",
-    "build": "tsc --noEmit && vite build",
+    "dev": "vite --config vite.config.mts",
+    "build": "tsc --noEmit && pnpm clean && pnpm build:basic && pnpm copy:404",
+    "build:basic": "vite build --config vite.config.mts",
     "preview": "vite preview --host",
-    "prepare": "husky install"
+    "clean": "rimraf dist",
+    "type-check": "tsc --b",
+    "create:env": "tsx ./scripts/create-env.mts",
+    "create:certs": "chmod +x ./scripts/create-certs.sh && ./scripts/create-certs.sh",
+    "update:all": "pnpm up --latest --recursive",
+    "prepare": "husky",
+    "postinstall": "pnpm create:env",
+    "copy:404": "cp 404.html dist/"
   },
   "repository": {
     "type": "git",
@@ -19,45 +30,42 @@
   },
   "homepage": "https://github.com/rusanoff/rusanoff.github.io#readme",
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@types/postcss-flexbugs-fixes": "^5.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.14.1",
-    "@vitejs/plugin-legacy": "^4.1.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-react": "^7.34.3",
-    "globals": "^15.6.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
-    "postcss": "^8.4.39",
-    "postcss-scss": "^4.0.9",
-    "sass": "^1.77.6",
-    "stylelint": "^16.6.1",
-    "terser": "^5.31.1",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.2",
-    "vite-plugin-html": "^3.2.2",
-    "vite-plugin-live-reload": "^3.0.3"
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/types": "19.5.0",
+    "@types/lint-staged": "13.3.0",
+    "@types/postcss-flexbugs-fixes": "5.0.3",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-import": "2.31.0",
+    "globals": "15.11.0",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "postcss": "8.4.47",
+    "postcss-scss": "4.0.9",
+    "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "sass": "1.79.4",
+    "stylelint": "16.15.0",
+    "stylelint-config-clean-order": "6.1.0",
+    "stylelint-prettier": "5.0.3",
+    "stylelint-scss": "6.11.1",
+    "svgo": "3.3.2",
+    "tsx": "4.19.3",
+    "typescript": "5.6.3",
+    "unplugin-fonts": "1.1.1",
+    "vite": "6.2.2",
+    "vite-plugin-html": "3.2.2",
+    "vite-plugin-pwa": "0.21.2"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.19",
-    "modern-css-reset": "^1.4.0",
-    "postcss-flexbugs-fixes": "^5.0.2"
+    "@tsparticles/all": "3.8.1",
+    "@tsparticles/configs": "3.8.1",
+    "@tsparticles/engine": "3.8.1",
+    "autoprefixer": "10.4.20",
+    "modern-css-reset": "1.4.0",
+    "postcss-flexbugs-fixes": "5.0.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint ./ --max-warnings=0",
-    "*.{css,scss}": "stylelint './src/**/*.{css,scss}' --max-warnings=0"
-  },
-  "overrides": {
-    "eslint": "^8.57.0",
-    "vite": "^5.3.2"
-  }
+  "packageManager": "pnpm@10.6.5"
 }
