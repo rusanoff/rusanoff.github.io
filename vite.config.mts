@@ -13,7 +13,7 @@ export const getDefaultConfig = (): UserConfig => {
   const IS_DEV = process.env.NODE_ENV === 'development';
 
   return {
-    base: process.env.BASE_URL || '/',
+    base: '/',
     css: {
       devSourcemap: true,
     },
