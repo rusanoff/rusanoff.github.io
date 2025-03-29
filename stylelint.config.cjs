@@ -225,7 +225,7 @@ module.exports = {
     'color-named': 'never',
 
     // Разрешить шестнадцатеричные цвета
-    'color-no-hex': false,
+    'color-no-hex': null,
 
     // endregion Color
 
@@ -349,7 +349,7 @@ module.exports = {
     'selector-no-qualifying-type': true,
 
     // Разрешить префиксы для селекторов
-    'selector-no-vendor-prefix': false,
+    'selector-no-vendor-prefix': null,
 
     // Не отслеживать список разрешённых селекторов псевдоклассов
     'selector-pseudo-class-allowed-list': null,
@@ -791,7 +791,14 @@ module.exports = {
         // region // comment
 
         // Требовать пустую строку перед комментариями
-        'scss/double-slash-comment-empty-line-before': 'always',
+        'scss/double-slash-comment-empty-line-before': [
+          'always',
+          {
+            except: [
+              'first-nested',
+            ],
+          },
+        ],
 
         // Запретить инлайновые комментарии
         'scss/double-slash-comment-inline': 'never',
@@ -875,15 +882,7 @@ module.exports = {
         // region Media feature
 
         // Запретить значение медиа-функции с помощью $-переменной
-        'scss/media-feature-value-dollar-variable': [
-          'never',
-          {
-            ignore: [
-              'max-width',
-              'min-width',
-            ],
-          },
-        ],
+        'scss/media-feature-value-dollar-variable': 'never',
 
         // endregion Media feature
 
@@ -895,8 +894,8 @@ module.exports = {
         // Запретить переносы строк перед операторами Sass
         'scss/operator-no-newline-before': true,
 
-        // Запретить значение медиа-функции с помощью $-переменной
-        'scss/operator-no-unspaced': 'never',
+        // Запретить использование операторов без пробелов в операциях Sass
+        'scss/operator-no-unspaced': true,
 
         // endregion Operator
 
