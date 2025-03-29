@@ -1,12 +1,14 @@
 @import "./variables";
 
 @mixin max-media($width) {
+  // stylelint-disable-next-line scss/media-feature-value-dollar-variable
   @media only screen and (max-width: $width) {
     @content;
   }
 }
 
 @mixin min-media($width) {
+  // stylelint-disable-next-line scss/media-feature-value-dollar-variable
   @media only screen and (min-width: $width) {
     @content;
   }

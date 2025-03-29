@@ -52,10 +52,3 @@ export const setParticles = async () => {
     },
   });
 };
-@import './avatar';
-@import './settings';
-@import './header';
-@import './footer';
-@import './skills-list';
-@import './link';
-@import './contacts-list';
