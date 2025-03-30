@@ -1,17 +1,31 @@
 name: Deploy to GitHub Pages
 
 on:
+  # Запускается при пуше изменений в ветку `main`
   push:
     branches:
       - main
+  # Позволяет запустить пайплайн вручную из вкладки «Действия»
+  workflow_dispatch:
 
+# Устанавливает разрешения GITHUB_TOKEN для разрешения развертывания на GitHub Pages
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+# Разрешить одно одновременное развертывание
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # Задача на развертывание
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -27,12 +41,12 @@ jobs:
           version: '10.6.5'
           run_install: false
 
-      - name: Get pnpm store directory
+      - name: Get PNPM Store Directory 🔧
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Setup pnpm cache
+      - name: Setup PNPM Cache 🔧
         uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
@@ -40,7 +54,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies 🔧
+      - name: Install Dependencies 🔧
         run: pnpm install --frozen-lockfile
 
       - name: Build 🏗️
@@ -48,9 +62,14 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages 🛠️
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact 📤
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: dist
-          clean: true
+          path: './dist'
+
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
