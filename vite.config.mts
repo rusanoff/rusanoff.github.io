@@ -29,7 +29,9 @@ export const getDefaultConfig = (): UserConfig => {
     },
     publicDir: path.resolve(__dirname, 'public'),
     plugins: [
-      HashPublicIcons(),
+      HashPublicIcons({
+        hashFunction: getFileNameWithCommonHash,
+      }),
       VitePWA({
         base: '/',
         includeAssets: [
