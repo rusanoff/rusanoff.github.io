@@ -7,7 +7,7 @@
   "description": "Online business card",
   "scripts": {
     "dev": "vite --config vite.config.mts",
-    "build": "tsc --noEmit && pnpm clean && pnpm build:basic && pnpm copy:404",
+    "build": "tsc --noEmit && pnpm clean && pnpm build:basic && pnpm copy:404 && pnpm copy:github-config",
     "build:basic": "vite build --config vite.config.mts",
     "preview": "vite preview --host",
     "clean": "rimraf dist",
@@ -17,7 +17,8 @@
     "update:all": "pnpm up --latest --recursive",
     "prepare": "husky",
     "postinstall": "pnpm create:env",
-    "copy:404": "cp 404.html dist/"
+    "copy:404": "cp 404.html dist/",
+    "copy:github-config": "cp .nojekyll _config.yml dist/"
   },
   "repository": {
     "type": "git",
