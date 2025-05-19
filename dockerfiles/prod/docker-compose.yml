@@ -11,4 +11,4 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-    # В продакшене не используем volumes, всё в контейнере 
+    # В продакшене не используем volumes, всё в контейнере
