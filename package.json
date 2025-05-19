@@ -17,7 +17,7 @@
     "update:all": "pnpm up --latest --recursive",
     "prepare": "husky",
     "postinstall": "pnpm create:env",
-    "copy:404": "mkdir -p dist/404 && cp 404.html dist/404/index.html"
+    "copy:404": "cp 404.html dist/404.html"
   },
   "repository": {
     "type": "git",
