@@ -1,0 +1,202 @@
+@use "sass:math";
+
+@import "../../../shared/styles/mixins";
+
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 120rem;
+  height: 100dvh;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+
+.title {
+  user-select: none;
+  font-size: 20rem;
+  line-height: 100%;
+  color: var(--color-text-contrast);
+  text-align: center;
+}
+
+.title--glitch {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color: var(--color-text-contrast);
+    background-color: var(--color-bg);
+  }
+
+  &::before {
+    left: 3px;
+    text-shadow: -4px 0 #666;
+    animation-name: glitch-animation;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+
+  &::after {
+    left: -3px;
+    text-shadow: -4px 0 #9e9e9e;
+    animation-name: glitch-animation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+}
+
+.subtitle {
+  margin-top: 5rem;
+  font-family: "Inter Variable", sans-serif;
+  font-size: 2.4rem;
+  font-variation-settings: "wght" 400;
+  color: var(--color-text-contrast);
+  text-align: center;
+
+  @include font-variation-fallback("Inter", 400);
+}
+
+$outline-border-width: 2px;
+
+.link {
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-top: 2.4rem;
+  padding: 0.4rem 2.4rem;
+  color: var(--color-text-contrast);
+  text-align: center;
+  text-decoration: none;
+  border: $outline-border-width var(--color-text-contrast) solid;
+  transition: border-color 0.3s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    box-sizing: content-box;
+    width: 0;
+    height: 0;
+    padding-left: $outline-border-width;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &::before {
+    top: -$outline-border-width;
+    left: -$outline-border-width;
+    border-top: $outline-border-width transparent solid;
+    border-right: $outline-border-width transparent solid;
+
+    @include no-hover() {
+      animation: top-right-border 0.2s 1 0.5s forwards;
+    }
+  }
+
+  &::after {
+    right: -$outline-border-width;
+    bottom: -$outline-border-width;
+    border-bottom: $outline-border-width transparent solid;
+    border-left: $outline-border-width transparent solid;
+
+    @include no-hover() {
+      animation: bottom-left-border 0.2s 1 0.7s forwards;
+    }
+  }
+
+  &:hover {
+    border-color: var(--color-text-contrast);
+    animation: outline-reset 0.2s 1 forwards;
+
+    &::before {
+      animation: top-right-border 0.2s 1 forwards;
+    }
+
+    &::after {
+      animation: bottom-left-border 0.2s 1 0.2s forwards;
+    }
+  }
+
+  &:active {
+    &::before,
+    &::after {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@keyframes glitch-animation {
+  $steps: 20;
+
+  @for $i from 0 through $steps {
+    #{percentage($i * (1 / $steps))} {
+      clip: rect(math.random(200) + px, 350px, math.random(200) + px, 30px);
+    }
+  }
+}
+
+@keyframes outline-reset {
+  0% {
+    border-color: var(--color-text-contrast);
+  }
+
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes top-right-border {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: var(--color-text-contrast);
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    border-color: var(--color-text-contrast);
+  }
+}
+
+@keyframes bottom-left-border {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: var(--color-text-contrast);
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    border-color: var(--color-text-contrast);
+  }
+}

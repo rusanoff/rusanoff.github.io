@@ -38,7 +38,7 @@ jobs:
       - name: Setup PNPM 📦
         uses: pnpm/action-setup@v3
         with:
-          version: '10.6.5'
+          version: '10.11.0'
           run_install: false
 
       - name: Get PNPM Store Directory 🔧
