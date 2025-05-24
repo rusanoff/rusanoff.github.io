@@ -22,6 +22,10 @@ export const getDefaultConfig = (): UserConfig => {
       outDir: path.resolve(__dirname, 'dist'),
       emptyOutDir: true,
       rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          404: path.resolve(__dirname, '404.html'),
+        },
         output: {
           assetFileNames: 'assets/[name].[hash].[ext]',
         },
@@ -129,19 +133,42 @@ export const getDefaultConfig = (): UserConfig => {
       }),
       HtmlPlugin({
         minify: !IS_DEV,
-        entry: 'src/app/main.mts',
-        inject: {
-          data: {
-            iconHash: new Date()
-              .getTime()
-              .toString(36),
-            iOsIconName: IS_DEV
-              ? '/icons/apple-touch-icon.png'
-              : getFileNameWithCommonHash(
-                path.resolve(__dirname, 'public', 'icons', 'apple-touch-icon.png'),
-              ),
+        pages: [
+          {
+            filename: 'index',
+            template: './index.html',
+            entry: './src/app/main.mts',
+            injectOptions: {
+              data: {
+                iconHash: new Date()
+                  .getTime()
+                  .toString(36),
+                iOsIconName: IS_DEV
+                  ? '/icons/apple-touch-icon.png'
+                  : getFileNameWithCommonHash(
+                    path.resolve(__dirname, 'public', 'icons', 'apple-touch-icon.png'),
+                  ),
+              },
+            },
           },
-        },
+          {
+            filename: '404',
+            template: './404.html',
+            entry: './src/app/404.mts',
+            injectOptions: {
+              data: {
+                iconHash: new Date()
+                  .getTime()
+                  .toString(36),
+                iOsIconName: IS_DEV
+                  ? '/icons/apple-touch-icon.png'
+                  : getFileNameWithCommonHash(
+                    path.resolve(__dirname, 'public', 'icons', 'apple-touch-icon.png'),
+                  ),
+              },
+            },
+          },
+        ],
       }),
     ],
     server: {
