@@ -147,7 +147,7 @@ $outline-border-width: 2px;
   $steps: 20;
 
   @for $i from 0 through $steps {
-    #{percentage($i * (1 / $steps))} {
+    #{percentage($i * math.div(1, $steps))} {
       clip: rect(math.random(200) + px, 350px, math.random(200) + px, 30px);
     }
   }
