@@ -8,3 +8,6 @@ node_modules
 .eslintcache
 .stylelintcache
 *.tsbuildinfo
+
+.DS_Store
+./**/.DS_Store

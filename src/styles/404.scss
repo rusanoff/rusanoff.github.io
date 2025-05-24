@@ -1,0 +1,23 @@
+@use "sass:math";
+
+@import "./fonts";
+@import "./global";
+@import "../widgets/404/styles/404";
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  font-family: "Inter Tight Variable", ui-sans-serif;
+  font-size: 1.6rem;
+  font-variation-settings: "wght" 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
+  background-image: url("/img/noise.png");
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+
+  @include font-variation-fallback("Inter Tight", 400);
+}
