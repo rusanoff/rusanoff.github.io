@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rusanoff/rusanoff.github.io/compare/v1.0.0...v1.0.1) (2025-05-24)
+
+
+### Bug Fixes
+
+* Pages assembly ([f7661f1](https://github.com/rusanoff/rusanoff.github.io/commit/f7661f1cd7ed3bc58e6e57085243e73a9eadfa83))
+
 # 1.0.0 (2025-05-24)
 
 
