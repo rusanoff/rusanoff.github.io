@@ -18,7 +18,7 @@ export const getDefaultConfig = (): UserConfig => {
       devSourcemap: true,
     },
     build: {
-      cssCodeSplit: false,
+      cssCodeSplit: true,
       outDir: path.resolve(__dirname, 'dist'),
       emptyOutDir: true,
       rollupOptions: {
@@ -27,7 +27,9 @@ export const getDefaultConfig = (): UserConfig => {
           404: path.resolve(__dirname, '404.html'),
         },
         output: {
-          assetFileNames: 'assets/[name].[hash].[ext]',
+          assetFileNames: () => {
+            return 'assets/[name].[hash].[ext]';
+          },
         },
       },
     },
