@@ -1,4 +1,4 @@
-@import "./variables";
+@use "./variables" as *;
 
 @mixin max-media($width) {
   // stylelint-disable-next-line scss/media-feature-value-dollar-variable

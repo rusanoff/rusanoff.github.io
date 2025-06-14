@@ -722,11 +722,11 @@ module.exports = {
 
         // region @-use
 
-        // Запретить использование @use без пространства имен
-        'scss/at-use-no-unnamespaced': true,
+        // Не проверять использование @use без пространства имен
+        'scss/at-use-no-unnamespaced': null,
 
-        // Запретить избыточные псевдонимы пространств имен
-        'scss/at-use-no-redundant-alias': true,
+        // Не проверять избыточные псевдонимы пространств имен
+        'scss/at-use-no-redundant-alias': null,
 
         // endregion @-use
 

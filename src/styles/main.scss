@@ -1,10 +1,16 @@
-@import "./fonts";
-@import "./global";
-@import "../widgets/card/styles/card";
-@import "../widgets/contactList/styles/contactList";
-@import "../widgets/footer/styles/footer";
+@use "../shared/styles/mixins" as mixins;
+
+@forward "./fonts";
+@forward "./global";
+@forward "../widgets/card/styles/card";
+@forward "../widgets/contactList/styles/contactList";
+@forward "../widgets/footer/styles/footer";
+@forward "../widgets/header/styles/header";
+@forward "../widgets/settings/styles/settings";
+@forward "../widgets/themeSwitcher/styles/themeSwitcher";
 
 .body {
+  overscroll-behavior-y: contain;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
@@ -19,7 +25,7 @@
   background-repeat: repeat;
   background-blend-mode: overlay;
 
-  @include font-variation-fallback("Inter Tight", 400);
+  @include mixins.font-variation-fallback("Inter Tight", 400);
 }
 
 .container {

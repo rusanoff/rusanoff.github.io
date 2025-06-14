@@ -1,6 +1,5 @@
 @use "sass:math";
-
-@import "../../../shared/styles/mixins";
+@use "../../../shared/styles/mixins" as mixins;
 
 .container {
   position: relative;
@@ -20,7 +19,7 @@
   user-select: none;
   font-size: 20rem;
   line-height: 100%;
-  color: var(--color-text-contrast);
+  color: var(--color-text-main);
   text-align: center;
 }
 
@@ -35,7 +34,7 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-    color: var(--color-text-contrast);
+    color: var(--color-text-main);
     background-color: var(--color-bg);
   }
 
@@ -70,7 +69,7 @@
   color: var(--color-text-contrast);
   text-align: center;
 
-  @include font-variation-fallback("Inter", 400);
+  @include mixins.font-variation-fallback("Inter", 400);
 }
 
 $outline-border-width: 2px;
@@ -82,10 +81,10 @@ $outline-border-width: 2px;
   display: inline-block;
   margin-top: 2.4rem;
   padding: 0.4rem 2.4rem;
-  color: var(--color-text-contrast);
+  color: var(--color-text-main);
   text-align: center;
   text-decoration: none;
-  border: $outline-border-width var(--color-text-contrast) solid;
+  border: $outline-border-width transparent solid;
   transition: border-color 0.3s ease-in-out;
 
   &::before,
@@ -106,7 +105,7 @@ $outline-border-width: 2px;
     border-top: $outline-border-width transparent solid;
     border-right: $outline-border-width transparent solid;
 
-    @include no-hover() {
+    @include mixins.no-hover() {
       animation: top-right-border 0.2s 1 0.5s forwards;
     }
   }
@@ -117,13 +116,13 @@ $outline-border-width: 2px;
     border-bottom: $outline-border-width transparent solid;
     border-left: $outline-border-width transparent solid;
 
-    @include no-hover() {
+    @include mixins.no-hover() {
       animation: bottom-left-border 0.2s 1 0.7s forwards;
     }
   }
 
   &:hover {
-    border-color: var(--color-text-contrast);
+    border-color: transparent;
     animation: outline-reset 0.2s 1 forwards;
 
     &::before {
@@ -155,7 +154,7 @@ $outline-border-width: 2px;
 
 @keyframes outline-reset {
   0% {
-    border-color: var(--color-text-contrast);
+    border-color: var(--color-bg);
   }
 
   100% {
@@ -167,7 +166,7 @@ $outline-border-width: 2px;
   0% {
     width: 0;
     height: 0;
-    border-color: var(--color-text-contrast);
+    border-color: transparent;
   }
 
   50% {
@@ -178,7 +177,7 @@ $outline-border-width: 2px;
   100% {
     width: 100%;
     height: 100%;
-    border-color: var(--color-text-contrast);
+    border-color: var(--color-text-main);
   }
 }
 
@@ -186,7 +185,7 @@ $outline-border-width: 2px;
   0% {
     width: 0;
     height: 0;
-    border-color: var(--color-text-contrast);
+    border-color: transparent;
   }
 
   50% {
@@ -197,6 +196,6 @@ $outline-border-width: 2px;
   100% {
     width: 100%;
     height: 100%;
-    border-color: var(--color-text-contrast);
+    border-color: var(--color-text-main);
   }
 }
