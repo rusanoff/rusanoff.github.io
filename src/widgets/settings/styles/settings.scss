@@ -1,0 +1,30 @@
+@use "../../../shared/styles/mixins" as mixins;
+
+.settings {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.2rem 0;
+}
+
+.settings__list {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.settings__item {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}

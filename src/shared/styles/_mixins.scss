@@ -1,7 +1,7 @@
 @use "sass:list";
 
-@import "./media-screen-mixins";
-@import "./media-device-mixins";
+@forward "./media-screen-mixins";
+@forward "./media-device-mixins";
 
 @mixin ellipsis {
   overflow: hidden;

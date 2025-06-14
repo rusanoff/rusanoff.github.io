@@ -6,9 +6,14 @@ export const setParticles = async () => {
   await loadAll(tsParticles);
 
   const options = configs.basic;
+  const element = document.getElementById('js-particles');
 
-  await tsParticles.load({
-    element: document.getElementById('js-particles')!,
+  if (!element) {
+    throw new ReferenceError('Элемент "#js-particles" не найден.');
+  }
+
+  const container = await tsParticles.load({
+    element,
     options: {
       ...options,
       fullScreen: false,
@@ -22,7 +27,9 @@ export const setParticles = async () => {
       particles: {
         ...options.particles,
         color: {
-          value: '#aaa',
+          value: getComputedStyle(document.documentElement)
+            .getPropertyValue('--color-particle-circle')
+            .trim(),
           animation: {
             enable: true,
             speed: 100,
@@ -30,7 +37,9 @@ export const setParticles = async () => {
           },
         },
         links: {
-          color: '#999',
+          color: getComputedStyle(document.documentElement)
+            .getPropertyValue('--color-particle-line')
+            .trim(),
           distance: 50,
           enable: true,
           opacity: 0.1,
@@ -51,4 +60,6 @@ export const setParticles = async () => {
       },
     },
   });
+
+  return container;
 };

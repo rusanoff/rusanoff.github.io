@@ -1,17 +1,33 @@
 /* stylelint-disable selector-max-type, selector-no-qualifying-type */
-@import "../../node_modules/modern-css-reset/dist/reset.min.css";
-@import "../shared/styles/mixins";
+
+@use "../../node_modules/modern-css-reset/dist/reset.min.css";
+@use "../shared/styles/mixins" as mixins;
 
 :root {
   --color-bg: #ddd;
+  --color-bg-reversed: #070707;
   --color-scrollbar: #bbb;
   --color-scrollbar-hover: #aaa;
-  --selection-color: rgba(0, 0, 0, 0.1);
+  --color-selection: rgba(0, 0, 0, 0.1);
+  --color-title: #000;
+  --color-subtitle: #666;
+  --color-card-bg: #fff;
+  --color-card-footer-bg: #222;
+  --color-card-footer-link: #fff;
+  --color-copyright: #666;
+  --color-footer-link: #666;
+  --color-footer-link-hover: #000;
+  --color-footer-link-no-hover: #000;
+  --color-text-main: #000;
+  --color-particle-circle: #aaa;
+  --color-particle-line: #999;
+  --color-404-glitch-before: #666;
+  --color-404-glitch-after: #9e9e9e;
 }
 
 * {
   &::selection {
-    background-color: var(--selection-color);
+    background-color: var(--color-selection);
   }
 }
 
@@ -36,11 +52,48 @@
 }
 
 html {
-  &.dark {
+  &::view-transition-old(root),
+  &::view-transition-new(root) {
+    mix-blend-mode: normal;
+    animation: none;
+  }
+
+  &::view-transition-old(root) {
+    z-index: 999;
+  }
+
+  &::view-transition-new(root) {
+    z-index: 1;
+  }
+
+  &.is-dark {
     --color-bg: #070707;
+    --color-bg-reversed: #ddd;
     --color-scrollbar: #111;
     --color-scrollbar-hover: #222;
-    --selection-color: rgba(255, 255, 255, 0.1);
+    --color-selection: rgba(255, 255, 255, 0.1);
+    --color-title: #fff;
+    --color-subtitle: #aaa;
+    --color-card-bg: #0f0f0f;
+    --color-card-footer-bg: #0b0b0b;
+    --color-card-footer-link: #777;
+    --color-copyright: #333;
+    --color-footer-link: #333;
+    --color-footer-link-hover: #777;
+    --color-footer-link-no-hover: #666;
+    --color-text-main: #fff;
+    --color-particle-circle: #444;
+    --color-particle-line: #555;
+    --color-404-glitch-before: #ddd;
+    --color-404-glitch-after: #eee;
+
+    &::view-transition-old(root) {
+      z-index: 1;
+    }
+
+    &::view-transition-new(root) {
+      z-index: 999;
+    }
   }
 }
 
@@ -53,7 +106,7 @@ h6 {
   font-family: "Oswald Variable", sans-serif;
   font-variation-settings: "wght" 600;
   line-height: 112%;
-  color: var(--color-text-contrast);
+  color: var(--color-text-main);
 
-  @include font-variation-fallback("Oswald", 600);
+  @include mixins.font-variation-fallback("Oswald", 600);
 }

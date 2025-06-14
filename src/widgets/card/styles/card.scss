@@ -1,4 +1,4 @@
-@import "../../../shared/styles/mixins";
+@use "../../../shared/styles/mixins" as mixins;
 
 .card {
   transform-style: preserve-3d;
@@ -7,7 +7,7 @@
   flex-direction: column;
   width: 30rem;
   height: 50rem;
-  background-color: #fff;
+  background-color: var(--color-card-bg);
   border-radius: 2rem;
 }
 
@@ -28,7 +28,7 @@
     display: block;
     width: 50%;
     height: 100%;
-    background-image: linear-gradient(90deg, #fff, transparent);
+    background-image: linear-gradient(90deg, var(--color-card-bg), transparent);
   }
 }
 
@@ -40,7 +40,9 @@
 .card__title {
   font-size: 4rem;
   font-variation-settings: "wght" 400;
+  color: var(--color-title);
   text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
 }
 
 .card__subtitle {
@@ -49,7 +51,8 @@
   padding-left: 2.8rem;
   font-size: 1.6rem;
   font-variation-settings: "wght" 300;
-  color: #666;
+  color: var(--color-subtitle);
+  transition: color 0.2s ease-in-out;
 
   &::before {
     content: "";
@@ -59,27 +62,56 @@
     transform: translateY(-50%);
     width: 1.6rem;
     height: 0.4rem;
-    background-color: #222;
+    background-color: var(--color-title);
+    transition: color 0.2s ease-in-out;
   }
 }
 
 .card__content {
   position: relative;
   overflow: hidden;
+  height: 100%;
   margin-top: -3.2rem;
 }
 
 .card__picture {
+  position: absolute;
   transform: translateX(6rem);
+}
+
+.card__picture--light {
+  transform: translateX(6rem) translateY(0);
+  opacity: 1;
+
+  @include mixins.dark-theme() {
+    transform: translateX(100%) translateY(100%);
+    opacity: 0;
+  }
+}
+
+.card__picture--dark {
+  transform: translateX(100%) translateY(100%);
+  opacity: 0;
+
+  @include mixins.dark-theme() {
+    transform: translateX(10rem) translateY(0);
+    opacity: 1;
+  }
 }
 
 .card__image {
   width: 100%;
   height: auto;
   -webkit-user-drag: none;
+
+  .card__picture--dark & {
+    width: 75%;
+  }
 }
 
 .card__footer {
+  transform: translateZ(0);
   padding: 2.4rem 1.6rem;
-  background-color: #222;
+  background-color: var(--color-card-footer-bg);
+  transition: background-color 0.2s ease-in-out;
 }

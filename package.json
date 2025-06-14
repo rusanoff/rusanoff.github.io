@@ -44,7 +44,7 @@
     "globals": "15.11.0",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
-    "postcss": "8.4.47",
+    "postcss": "8.5.5",
     "postcss-scss": "4.0.9",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
@@ -56,7 +56,7 @@
     "stylelint-scss": "6.11.1",
     "svgo": "3.3.2",
     "tsx": "4.19.3",
-    "typescript": "5.6.3",
+    "typescript": "5.8.3",
     "unplugin-fonts": "1.1.1",
     "vite": "6.2.2",
     "vite-plugin-html": "3.2.2",
@@ -68,7 +68,8 @@
     "@tsparticles/engine": "3.8.1",
     "autoprefixer": "10.4.20",
     "modern-css-reset": "1.4.0",
+    "postcss-dark-theme-class": "1.3.0",
     "postcss-flexbugs-fixes": "5.0.2"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.12.1"
 }

@@ -7,6 +7,7 @@ import type { UserConfig } from 'vite';
 
 import { getHashedFileName } from './utils/getHashedFileName';
 import { HashPublicIcons } from './vite.HashPublicIcons.plugin.mjs';
+import { ConnectThemeInitiatorInline } from './vite.ConnectThemeInitiatorInline.plugin.mjs';
 
 export const getDefaultConfig = (): UserConfig => {
   const getFileNameWithCommonHash = getHashedFileName();
@@ -25,6 +26,7 @@ export const getDefaultConfig = (): UserConfig => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           404: path.resolve(__dirname, '404.html'),
+          theme: path.resolve(__dirname, 'src/app/theme.mts'),
         },
         output: {
           assetFileNames: () => {
@@ -38,6 +40,7 @@ export const getDefaultConfig = (): UserConfig => {
       HashPublicIcons({
         hashFunction: getFileNameWithCommonHash,
       }),
+
       VitePWA({
         base: '/',
         includeAssets: [
@@ -133,6 +136,7 @@ export const getDefaultConfig = (): UserConfig => {
           },
         },
       }),
+
       HtmlPlugin({
         minify: !IS_DEV,
         pages: [
@@ -172,6 +176,8 @@ export const getDefaultConfig = (): UserConfig => {
           },
         ],
       }),
+
+      ConnectThemeInitiatorInline(),
     ],
     server: {
       host: '0.0.0.0',

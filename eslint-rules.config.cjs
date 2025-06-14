@@ -406,8 +406,8 @@ module.exports = {
     // Требовать `let` или `const` вместо `var`
     'no-var': 'error',
 
-    // Запретить операторы `void`
-    'no-void': 'error',
+    // Не проверять использование оператора `void`
+    'no-void': 'off',
 
     // Отключить проверку на предупреждения в комментариях
     'no-warning-comments': 'off',

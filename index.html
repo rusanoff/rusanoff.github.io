@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-    lang="en"
-    class=""
->
+<html lang="en">
 <head>
     <!--  region Fonts  -->
     <link
@@ -241,13 +238,88 @@
                 sans-serif;
             font-size: 10px;
         }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        a.contact-list__link {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
     </style>
 </head>
 
 <body class="body">
     <header class="header">
         <div class="container">
+            <div class="settings">
+                <ul class="settings__list">
+                    <li class="settings__item">
+                        <label
+                            class="theme-switcher"
+                            title="Переключить тему"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="
+                                    theme-switcher__icon
+                                    theme-switcher__icon--light
+                                "
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="4"
+                                />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
 
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="
+                                    theme-switcher__icon
+                                    theme-switcher__icon--dark
+                                "
+                            >
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                            </svg>
+
+                            <input
+                                type="checkbox"
+                                id="js-theme-switcher"
+                                class="theme-switcher__checkbox"
+                            />
+                        </label>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -273,7 +345,12 @@
             </div>
 
             <div class="card__content">
-                <picture class="card__picture">
+                <picture
+                    class="
+                        card__picture
+                        card__picture--light
+                    "
+                >
                     <source
                         srcset="
                           /img/me/me-light.webp 1x,
@@ -303,6 +380,42 @@
                         loading="lazy"
                     />
                 </picture>
+
+                <picture
+                    class="
+                        card__picture
+                        card__picture--dark
+                    "
+                >
+                    <source
+                        srcset="
+                          /img/me/me-dark.webp 1x,
+                          /img/me/me-dark@2x.webp 2x
+                        "
+                        type="image/webp"
+                    />
+
+                    <source
+                        srcset="
+                          /img/me/me-dark.png 1x,
+                          /img/me/me-dark@2x.png 2x
+                        "
+                        type="image/png"
+                    />
+
+                    <img
+                        class="card__image"
+                        src="/img/me/me-dark.png"
+                        srcset="
+                          /img/me/me-dark.png 1x,
+                          /img/me/me-dark@2x.png 2x
+                        "
+                        width="225"
+                        height="388"
+                        alt="Andrew Rusanov"
+                        loading="lazy"
+                    />
+                </picture>
             </div>
 
             <div class="card__footer">
@@ -310,14 +423,22 @@
                     <li class="contact-list__item">
                         <a
                             href="https://t.me/rusanoff"
-                            class="
-                                contact-list__link
-                                contact-list__link--telegram
-                            "
+                            class="contact-list__link"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Telegram"
                         >
+                            <svg
+                                class="contact-list__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M20.303 2.984a2.4 2.4 0 0 0-.787.188c-.216.085-.988.41-2.22.926l-4.599 1.931C9.221 7.491 5.314 9.136 3.313 9.98c-.07.028-.348.114-.657.35-.309.235-.652.747-.652 1.308 0 .452.226.912.498 1.175.272.264.548.387.78.479v-.002c.78.31 3.109 1.243 3.663 1.465.197.59 1.042 3.113 1.242 3.748h-.001c.142.45.28.742.472.986.096.122.211.233.352.32q.083.05.174.085l.025.007-.023-.005q.025.012.05.023c.03.01.05.01.088.018.137.042.274.07.4.07.544 0 .878-.295.878-.295l.021-.016 2.348-1.986 2.875 2.66c.052.074.464.631 1.416.631.568 0 1.017-.281 1.304-.576s.467-.597.547-1.006l.002-.002c.064-.33 2.817-14.15 2.817-14.15l-.006.023c.085-.382.11-.752.01-1.129a1.62 1.62 0 0 0-.704-.937 1.65 1.65 0 0 0-.93-.239m-.395 2.19c-.109.546-2.574 12.932-2.726 13.709l-4.153-3.842-2.806 2.373.777-3.039s5.363-5.428 5.686-5.744c.26-.253.314-.342.314-.43 0-.117-.06-.201-.2-.201-.124 0-.294.12-.384.176-1.144.713-6.015 3.489-8.41 4.851-.144-.057-2.309-.927-3.475-1.392l13.54-5.694c1.037-.435 1.579-.66 1.837-.767m-2.756 13.851h.002l-.002.006c.002-.006 0 0 0-.006" />
+                            </svg>
+
                             <span class="contact-list__text">
                                 Telegram
                             </span>
@@ -327,14 +448,22 @@
                     <li class="contact-list__item">
                         <a
                             href="https://www.linkedin.com/in/arusanoff"
-                            class="
-                                contact-list__link
-                                contact-list__link--linkedin
-                            "
+                            class="contact-list__link"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="LinkedIn"
                         >
+                            <svg
+                                class="contact-list__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 2h14v14H5zm2.78 1.316c-.858 0-1.372.516-1.372 1.202s.514 1.199 1.285 1.199c.857 0 1.371-.513 1.371-1.2 0-.685-.514-1.2-1.285-1.2M6.476 10v7H9v-7zm4.605 0v7h2.523v-3.826c0-1.14.813-1.303 1.057-1.303s.897.245.897 1.303V17H18v-3.826C18 10.977 17.024 10 15.803 10s-1.873.407-2.198.977V10z" />
+                            </svg>
+
                             <span class="contact-list__text">
                                 LinkedIn
                             </span>
@@ -344,14 +473,22 @@
                     <li class="contact-list__item">
                         <a
                             href="https://www.instagram.com/aa.rusanoff"
-                            class="
-                                contact-list__link
-                                contact-list__link--instagram
-                            "
+                            class="contact-list__link"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Instagram"
                         >
+                            <svg
+                                class="contact-list__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M8 3C5.243 3 3 5.243 3 8v8c0 2.757 2.243 5 5 5h8c2.757 0 5-2.243 5-5V8c0-2.757-2.243-5-5-5zm0 2h8c1.654 0 3 1.346 3 3v8c0 1.654-1.346 3-3 3H8c-1.654 0-3-1.346-3-3V8c0-1.654 1.346-3 3-3m9 1a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m-5 1c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5m0 2c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3" />
+                            </svg>
+
                             <span class="contact-list__text">
                                 Instagram
                             </span>
@@ -361,14 +498,22 @@
                     <li class="contact-list__item">
                         <a
                             href="https://github.com/rusanoff"
-                            class="
-                                contact-list__link
-                                contact-list__link--github
-                            "
+                            class="contact-list__link"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="GitHub"
                         >
+                            <svg
+                                class="contact-list__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2m0 2c4.41 0 8 3.59 8 8 0 .469-.047.93-.125 1.375a5 5 0 0 0-1.031-.125c-.313-.004-.703.047-1.032.094.114-.348.188-.73.188-1.125 0-.961-.469-1.856-1.219-2.594.207-.77.41-2.09-.125-2.625-1.582 0-2.457 1.129-2.5 1.188A6.5 6.5 0 0 0 12.625 8c-.691 0-1.352.125-1.969.313l.188-.157s-.88-1.219-2.5-1.219c-.567.57-.309 2.016-.094 2.75C7.484 10.419 7 11.282 7 12.22c0 .328.078.64.156.937-.277-.031-1.277-.125-1.687-.125-.364 0-.926.086-1.375.188A8 8 0 0 1 4 12c0-4.41 3.59-8 8-8m-6.531 9.281c.394 0 1.593.14 1.75.156q.029.081.062.157c-.43-.04-1.261-.098-1.812-.031-.367.042-.836.175-1.25.28-.032-.124-.07-.245-.094-.374.438-.094 1.012-.188 1.344-.188m13.375.219c.398.004.761.07 1 .125-.012.066-.047.121-.063.188a5.8 5.8 0 0 0-1.156-.157c-.234-.004-.61.008-.937.031.015-.03.019-.062.03-.093.34-.047.774-.098 1.126-.094m-12.75.281c.562.004 1.09.043 1.312.063.524.976 1.582 1.699 3.219 2a3.2 3.2 0 0 0-1.031.906 9 9 0 0 1-.719.031c-.695 0-1.129-.62-1.5-1.156C7 15.09 6.539 15.031 6.281 15c-.261-.031-.351.117-.218.219.761.586 1.035 1.281 1.343 1.906.278.563.86.875 1.5.875h.125c-.02.11-.031.21-.031.313v1.093a8 8 0 0 1-4.719-5.343c.41-.102.871-.208 1.219-.25.16-.02.363-.036.594-.032m12.531.125c.45.012.848.098 1.094.156A7.98 7.98 0 0 1 16 18.907v-.593c0-.852-.672-1.946-1.625-2.47 1.582-.288 2.613-.98 3.156-1.905a12 12 0 0 1 1.094-.032M12.5 18c.273 0 .5.227.5.5v1.438A8 8 0 0 1 12 20v-1.5c0-.273.227-.5.5-.5m-2 1c.273 0 .5.227.5.5v.438a9 9 0 0 1-1-.188v-.25c0-.273.227-.5.5-.5m4 0c.242 0 .453.176.5.406a8 8 0 0 1-1 .344v-.25c0-.273.227-.5.5-.5" />
+                            </svg>
+
                             <span class="contact-list__text">
                                 GitHub
                             </span>
@@ -378,14 +523,22 @@
                     <li class="contact-list__item">
                         <a
                             href="mailto:andrew.rusanoff@gmail.com?subject=rusanoff.gitgub.io&body=Hi%2C%20Andrew%21%0A%0A%0A%0ABest%20Regards%0A"
-                            class="
-                                contact-list__link
-                                contact-list__link--gmail
-                            "
+                            class="contact-list__link"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Gmail"
                         >
+                            <svg
+                                class="contact-list__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M4.5 3A3.515 3.515 0 0 0 1 6.5V18c0 1.645 1.355 3 3 3h4v-7.326l4 3.125 4-3.125V21h4c1.645 0 3-1.355 3-3V6.5C23 4.579 21.421 3 19.5 3a3.5 3.5 0 0 0-2.156.742L12 7.912l-5.344-4.17h-.002A3.5 3.5 0 0 0 4.5 3m0 2c.33 0 .643.098.924.318l.576.45v3.806L3 7.232V6.5C3 5.66 3.66 5 4.5 5m15 0c.84 0 1.5.66 1.5 1.5v.732l-3 2.342V5.768l.576-.45c.281-.22.594-.318.924-.318M8 7.328l4 3.121 4-3.12v3.808l-4 3.125-4-3.125zM3 9.77l3 2.341V19H4c-.565 0-1-.435-1-1zm18 0V18c0 .565-.435 1-1 1h-2v-6.889z" />
+                            </svg>
+
                             <span class="contact-list__text">
                                 Gmail
                             </span>

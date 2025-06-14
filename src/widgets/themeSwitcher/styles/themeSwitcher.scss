@@ -1,0 +1,65 @@
+@use "../../../shared/styles/mixins" as mixins;
+
+.theme-switcher {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color-bg-reversed);
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+
+  @include mixins.no-hover() {
+    color: var(--color-bg);
+    background-color: var(--color-bg-reversed);
+    transition: none;
+  }
+
+  &:hover {
+    color: var(--color-bg);
+    background-color: var(--color-bg-reversed);
+  }
+}
+
+.theme-switcher__checkbox {
+  @include mixins.visually-hidden();
+}
+
+.theme-switcher__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  transition:
+    transform 0.2s ease-in-out 0.4s,
+    opacity 0.1s ease-in-out 0.4s;
+}
+
+.theme-switcher__icon--light {
+  transform: translate(200%, -50%);
+  opacity: 0;
+
+  @include mixins.dark-theme() {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.theme-switcher__icon--dark {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+
+  @include mixins.dark-theme() {
+    transform: translate(-200%, -50%);
+    opacity: 0;
+  }
+}

@@ -1,8 +1,9 @@
 @use "sass:math";
+@use "../shared/styles/mixins" as mixins;
 
-@import "./fonts";
-@import "./global";
-@import "../widgets/404/styles/404";
+@forward "./fonts";
+@forward "./global";
+@forward "../widgets/404/styles/404";
 
 .body {
   display: flex;
@@ -19,5 +20,5 @@
   background-repeat: repeat;
   background-blend-mode: overlay;
 
-  @include font-variation-fallback("Inter Tight", 400);
+  @include mixins.font-variation-fallback("Inter Tight", 400);
 }
